@@ -14,7 +14,6 @@ class LoginController extends CommomController
     public function login()
     {
 //        echo 11222434;
-
         return view('admin.login');
 
     }
