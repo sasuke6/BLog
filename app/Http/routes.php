@@ -21,6 +21,6 @@ Route::group(['middleware' =>  ['web']], function () {
 
     Route::get('/test', 'IndexController@index');
 
-    Route::get('admin/login', 'Admin/LoginController@login');
+    Route::get('admin/login', 'Admin\LoginController@login');
 });
 
