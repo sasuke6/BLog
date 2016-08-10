@@ -14,13 +14,15 @@
 
 
 
-Route::group(['middleware' =>  ['web']], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+Route::group(['middleware' =>  ['web'], 'namespace'=>'Admin', 'prefix' => 'admin'], function () {
+//    Route::get('/', function () {
+//        return view('welcome');
+//    });
 
-    Route::get('/test', 'IndexController@index');
+//    Route::get('/test', 'IndexController@index');
 
-    Route::get('admin/login', 'Admin\LoginController@login');
+    Route::get('login', 'LoginController@login');
 });
+
+
 
