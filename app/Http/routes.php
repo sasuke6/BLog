@@ -22,6 +22,11 @@ Route::group(['middleware' =>  ['web'], 'namespace'=>'Admin', 'prefix' => 'admin
 //    Route::get('/test', 'IndexController@index');
 
     Route::get('login', 'LoginController@login');
+
+
+    Route::any('captcha', 'LoginController@captcha');
+
+
 });
 
 
