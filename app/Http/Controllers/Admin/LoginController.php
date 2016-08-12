@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Model\User;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
@@ -18,12 +20,20 @@ class LoginController extends Controller
     {
         if ($input = Input::all()) {
             if (captcha_check($input['code'])) {
-                echo 111;
+                $user = User::first();
+                if ($user->user_name != $input['username'] || Crypt::decrypt($user->user_pass) != $input['password'])
+                {
+                    return back()->with('message', '用户名或者密码错误');
+                } else {
+                    echo 'ok';
+                }
             } else {
-                return back()->with('message','验证码错误');
-
+                return back()->with('message', '验证码错误');
             }
+
+
         } else {
+
             return view('admin/login');
         }
 
@@ -45,6 +55,14 @@ class LoginController extends Controller
             }
         }
         return captcha_img();
+    }
+
+    public function crypt()
+    {
+        $password = '111111';
+
+        echo Crypt::encrypt($password);
+//        echo Crypt::decrypt($passwordDe);
     }
 
 }

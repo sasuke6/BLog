@@ -26,6 +26,8 @@ Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
 
     Route::any('captcha', 'LoginController@captcha');
 
+    Route::any('crypt', 'LoginController@crypt');
+
 
 });
 
