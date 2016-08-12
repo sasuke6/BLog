@@ -14,14 +14,14 @@
 
 
 
-Route::group(['middleware' =>  ['web'], 'namespace'=>'Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
 //    Route::get('/', function () {
 //        return view('welcome');
 //    });
 
 //    Route::get('/test', 'IndexController@index');
 
-    Route::get('login', 'LoginController@login');
+    Route::any('login', 'LoginController@login');
 
 
     Route::any('captcha', 'LoginController@captcha');

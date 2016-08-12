@@ -11,8 +11,13 @@
 		<h1>泳乎</h1>
 		<h2>欢迎使用泳乎后端管理平台</h2>
 		<div class="form">
-			<p style="color:red">用户名错误</p>
-			<form action="#" method="post">
+
+            @if(session('message'))
+                <p style="color:red">{{ session('message') }}</p>
+            @endif
+
+			<form action="" method="post">
+                {{ csrf_field() }}
 				<ul>
 					<li>
 					<input type="text" name="username" class="text"/>
@@ -25,7 +30,7 @@
 					<li>
 						<input type="text" class="code" name="code"/>
 						<span><i class="fa fa-check-square-o"></i></span>
-						<img src="{{ url('captcha') }}" alt="">
+						<img src="{{ url('captcha') }}" alt="" onclick="this.src='{{url('captcha')}}?' + Math.random()">
 					</li>
 					<li>
 						<input type="submit" value="立即登陆"/>
