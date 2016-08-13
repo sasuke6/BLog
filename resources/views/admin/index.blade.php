@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../../../public/admin/style/css/admin.css">
-	<link rel="stylesheet" href="../../../public/admin/style/font/css/font-awesome.min.css">
-	<script type="text/javascript" src="../../../public/admin/style/js/jquery.js"></script>
-    <script type="text/javascript" src="../../../public/admin/style/js/ch-ui.admin.js"></script>
+    <link rel="stylesheet" href="{{ asset('admin/style/css/admin.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('admin/style/font/css/font-awesome.min.css') }}" type="text/css">
+    <script src="{{ asset('admin/style/js/jquery.js') }}"></script>
+    <script src="{{ asset('admin/style/js/admin.js') }}"></script>
+
 </head>
 <body>
 	<!--头部 开始-->
@@ -61,7 +62,7 @@
 
 	<!--主体部分 开始-->
 	<div class="main_box">
-		<iframe src="info.html" frameborder="0" width="100%" height="100%" name="main"></iframe> 
+		<iframe src="{{ url('admin/info') }}" frameborder="0" width="100%" height="100%" name="main"></iframe>
 	</div>
 	<!--主体部分 结束-->
 

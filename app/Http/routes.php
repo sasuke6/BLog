@@ -15,18 +15,13 @@
 
 
 Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
-//    Route::get('/', function () {
-//        return view('welcome');
-//    });
 
-//    Route::get('/test', 'IndexController@index');
 
     Route::any('login', 'LoginController@login');
-
-
     Route::any('captcha', 'LoginController@captcha');
 
-    Route::any('crypt', 'LoginController@crypt');
+    Route::any('index', 'IndexController@index');
+    ROute::any('info', 'IndexController@info');
 
 
 });
