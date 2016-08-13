@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	{{--<link rel="stylesheet" href="/resources/views/admin/style/css/admin.css">--}}
-	<link rel="stylesheet" href="{{ asset('admin/style/css/admin.css') }}" type="text/css">
-	<link rel="stylesheet" href="{{ asset('admin/style/font/css/font-awesome.min.css') }}" type="text/css">
-</head>
+@extends('layouts/admin')
+@section('content')
 <body style="background:#F3F3F4;">
 	<div class="login_box">
 		<h1>泳乎</h1>
@@ -39,5 +33,4 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+@endsection

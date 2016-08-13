@@ -25,7 +25,7 @@ class LoginController extends Controller
                 {
                     return back()->with('message', '用户名或者密码错误');
                 } else {
-                    echo 'ok';
+                    return redirect('admin/index');
                 }
             } else {
                 return back()->with('message', '验证码错误');
