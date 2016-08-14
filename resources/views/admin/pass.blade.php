@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="../../../public/admin/style/css/admin.css">
-	<link rel="stylesheet" href="../../../public/admin/style/font/css/font-awesome.min.css">
-    <script type="text/javascript" src="../../../public/admin/style/js/jquery.js"></script>
-    <script type="text/javascript" src="../../../public/admin/style/js/admin.js"></script>
-</head>
-<body>
+@extends('layouts/admin')
+@section('content')
     <!--面包屑导航 开始-->
 <div class="crumb_warp">
     <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
@@ -19,13 +11,25 @@
 <div class="result_wrap">
     <div class="result_title">
         <h3>修改密码</h3>
+        @if(count($errors)>0)
+            <div class="mark">
+                @if(is_object($errors))
+                @foreach($errors->all() as $error)
+                    <p>{{  $error }}</p>
+                @endforeach
+                    @else
+                    <p>{{ $errors }}</p>
+                @endif
+            </div>
+        @endif
     </div>
 </div>
 <!--结果集标题与导航组件 结束-->
 
 <div class="result_wrap">
-    <form method="post" onsubmit="return changePass()">
-        <input type="hidden" name="_token" value="X25wGVjFqDXvq7vAUAJTjTAHfX0RhkGufucRdzGh">
+    <form method="post" action="">
+        {{ csrf_field() }}
+
         <table class="add_tab">
             <tbody>
             <tr>
@@ -43,7 +47,7 @@
             <tr>
                 <th><i class="require">*</i>确认密码：</th>
                 <td>
-                    <input type="password" name="password_c"> </i>再次输入密码</span>
+                    <input type="password" name="password_confirmation"> </i>再次输入密码</span>
                 </td>
             </tr>
             <tr>
@@ -57,5 +61,4 @@
         </table>
     </form>
 </div>
-</body>
-</html>
+@endsection

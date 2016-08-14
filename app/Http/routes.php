@@ -26,9 +26,10 @@ Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
 Route::group(['middleware' => 'AdminLogin','namespace'=>'Admin', 'prefix' => 'admin'], function () {
 
 
-    Route::any('index', 'IndexController@index');
-    Route::any('info', 'IndexController@info');
-    Route::any('exit', 'IndexController@exit');
+    Route::get('index', 'IndexController@index');
+    Route::get('info', 'IndexController@info');
+    Route::get('exit', 'IndexController@exit');
+    Route::any('changePass','IndexController@changePass');
 
 
 });
