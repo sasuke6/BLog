@@ -20,11 +20,20 @@ Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
     Route::any('login', 'LoginController@login');
     Route::any('captcha', 'LoginController@captcha');
 
+});
+
+
+Route::group(['middleware' => 'AdminLogin','namespace'=>'Admin', 'prefix' => 'admin'], function () {
+
+
     Route::any('index', 'IndexController@index');
-    ROute::any('info', 'IndexController@info');
+    Route::any('info', 'IndexController@info');
+    Route::any('exit', 'IndexController@exit');
 
 
 });
+
+
 
 
 

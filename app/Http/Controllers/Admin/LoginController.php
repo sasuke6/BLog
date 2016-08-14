@@ -25,6 +25,7 @@ class LoginController extends Controller
                 {
                     return back()->with('message', '用户名或者密码错误');
                 } else {
+                    session(['user' => $user]);
                     return redirect('admin/index');
                 }
             } else {
@@ -33,7 +34,7 @@ class LoginController extends Controller
 
 
         } else {
-
+            session(['user' => null]);
             return view('admin/login');
         }
 

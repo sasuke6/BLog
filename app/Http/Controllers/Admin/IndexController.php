@@ -19,4 +19,10 @@ class IndexController extends Controller
     {
         return view('admin/info');
     }
+
+    public function exit()
+    {
+        session(['user'=>null]);
+        return redirect('admin/login');
+    }
 }
