@@ -28,8 +28,10 @@ Route::group(['middleware' => 'AdminLogin','namespace'=>'Admin', 'prefix' => 'ad
 
     Route::get('index', 'IndexController@index');
     Route::get('info', 'IndexController@info');
-    Route::get('exit', 'IndexController@exit');
+    Route::get('quit', 'IndexController@quit');
     Route::any('changePass','IndexController@changePass');
+
+    Route::resource('category','CategoryController');
 
 
 });

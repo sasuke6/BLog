@@ -26,7 +26,7 @@ class IndexController extends Controller
         return view('admin/info');
     }
 
-    public function exit()
+    public function quit()
     {
         session(['user'=>null]);
         return redirect('admin/login');
