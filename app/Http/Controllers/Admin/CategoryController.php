@@ -13,7 +13,7 @@ class CategoryController extends Controller
     //
     public function index()
     {
-        $category = Category::all();
+        $category = (new Category)->tree();
         return view('admin/category/index')->with('data',$category);
 
     }
