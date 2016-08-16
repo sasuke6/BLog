@@ -58,11 +58,11 @@
                     @foreach($data as $tmp)
                     <tr>
                         <td class="tc">
-                            <input type="text" name="ord[]" value="{{ $tmp->cate_order }}}">
+                            <input type="text" name="ord[]" value="{{ $tmp->cate_order }}">
                         </td>
                         <td class="tc">{{ $tmp->cate_id }}</td>
                         <td>
-                            <a href="#">{{ $tmp->cate_name }}</a>
+                            <a href="#">{{ $tmp->_cate_name }}</a>
                         </td>
                         <td>{{ $tmp->cate_title }}</td>
                         <td>{{ $tmp->cate_view }}</td>

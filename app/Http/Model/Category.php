@@ -14,24 +14,26 @@ class Category extends Model
     public function tree()
     {
         $category = $this->all();
-        return $this->getTree($category, 'cate_name', 'cate_id', 'cate_pid');
+        $tmp =  $this->getTree($category, 'cate_name', 'cate_id', 'cate_pid',0);
+        return $tmp;
     }
 
-    public function getTree($data, $field_name, $field_id = 'id', $field_pid = 'pid', $pid = 0)
+    public function getTree($data, $field_name, $field_id, $field_pid, $pid)
     {
         $array = array();
         foreach ($data as $tmp => $real) {
             if ($real->$field_pid == $pid) {
-                $data[$k]["_" . $field_name] = $data[$k][$field_name];
+                $data[$tmp]["_".$field_name] = $data[$tmp][$field_name];
                 $array[] = $data[$tmp];
                 foreach ($data as $tmpSe => $realSe) {
                     if ($realSe->$field_pid == $real->$field_id) {
-                        $data[$tmpSe]["_" . $field_name] = '___' . $data[$tmpSe][$field_name];
+                        $data[$tmpSe]["_" . $field_name] = "|————".$data[$tmpSe][$field_name];
                         $array[] = $data[$tmpSe];
                     }
                 }
             }
         }
+
 
         return $array;
     }
