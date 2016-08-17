@@ -58,7 +58,7 @@
                     @foreach($data as $tmp)
                     <tr>
                         <td class="tc">
-                            <input type="text" name="ord[]" value="{{ $tmp->cate_order }}">
+                            <input type="text" onchange="changeOrder(this , {{ $tmp->cate_id }})" value="{{ $tmp->cate_order }}">
                         </td>
                         <td class="tc">{{ $tmp->cate_id }}</td>
                         <td>
@@ -110,5 +110,17 @@
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+
+    <script>
+
+        function changeOrder(obj, cate_id) {
+            var cate_order = $(obj).val();
+            $.post("{{ url('admin/cate/changeorder') }}", {'_token' : '{{ csrf_token() }}' }, function (data) {
+
+            });
+        }
+
+
+    </script>
 
 @endsection

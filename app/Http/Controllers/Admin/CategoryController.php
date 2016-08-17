@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class CategoryController extends Controller
 {
     //
     public function index()
     {
-        $categorys = new Category;
+        $category = new Category;
         $tmp = array();
-        $tmp = $categorys->tree();
+        $tmp = $category->tree();
         return view('admin/category/index')->with('data',$tmp);
 
     }
@@ -48,6 +49,28 @@ class CategoryController extends Controller
     public function destroy()
     {
 
+    }
+
+    public  function  changeorder()
+    {
+//        $input = Input::all();
+//        $cate = Category::find($input['cate_id']);
+//        $cate->cate_order = $input['cate_order'];
+//        $src = $cate->update();
+//
+//        if ($src){
+//            $data = [
+//                'status' => 0,
+//                'message' => '分类排序更新成功',
+//            ];
+//        } else {
+//            $data = [
+//                'status' => 1,
+//                'message' => '分类排序更新失败,请稍后重试!',
+//            ];
+//        }
+//        return $data;
+        echo '11111';
     }
 
 
