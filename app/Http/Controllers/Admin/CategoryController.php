@@ -70,7 +70,7 @@ class CategoryController extends Controller
             ];
         }
         return $data;
-        echo '11111';
+
     }
 
 

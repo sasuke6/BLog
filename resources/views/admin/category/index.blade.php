@@ -71,7 +71,6 @@
                             <a href="#">删除</a>
                         </td>
                     </tr>
-
                     @endforeach
                 </table>
             </div>
