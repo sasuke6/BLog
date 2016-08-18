@@ -115,8 +115,8 @@
 
         function changeOrder(obj, cate_id) {
             var cate_order = $(obj).val();
-            $.post("{{ url('admin/cate/changeorder') }}", {'_token' : '{{ csrf_token() }}' }, function (data) {
-
+            $.post("{{ url('admin/cate/changeorder') }}", {'_token' : '{{ csrf_token() }}', 'cate_id' : cate_id, 'cate_order' : cate_order }, function (data) {
+                alert(data.message);
             });
         }
 

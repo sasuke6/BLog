@@ -53,23 +53,23 @@ class CategoryController extends Controller
 
     public  function  changeorder()
     {
-//        $input = Input::all();
-//        $cate = Category::find($input['cate_id']);
-//        $cate->cate_order = $input['cate_order'];
-//        $src = $cate->update();
-//
-//        if ($src){
-//            $data = [
-//                'status' => 0,
-//                'message' => '分类排序更新成功',
-//            ];
-//        } else {
-//            $data = [
-//                'status' => 1,
-//                'message' => '分类排序更新失败,请稍后重试!',
-//            ];
-//        }
-//        return $data;
+        $input = Input::all();
+        $cate = Category::find($input['cate_id']);
+        $cate->cate_order = $input['cate_order'];
+        $src = $cate->update();
+
+        if ($src){
+            $data = [
+                'status' => 0,
+                'message' => '分类排序更新成功',
+            ];
+        } else {
+            $data = [
+                'status' => 1,
+                'message' => '分类排序更新失败,请稍后重试!',
+            ];
+        }
+        return $data;
         echo '11111';
     }
 
