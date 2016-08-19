@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('admin/style/font/css/font-awesome.min.css') }}" type="text/css">
     <script src="{{ asset('admin/style/js/jquery.js') }}"></script>
     <script src="{{ asset('admin/style/js/admin.js') }}"></script>
+    <script src="{{ asset('admin/style/js/layer/layer.js') }}"></script>
 
 </head>
 <body>

@@ -23,6 +23,8 @@ class CategoryController extends Controller
 
     public function create()
     {
+        $data = Category::where('cate_pid',0)->get();
+        return view('admin/category/add' , compact('data'));
 
     }
 
@@ -51,7 +53,7 @@ class CategoryController extends Controller
 
     }
 
-    public  function  changeorder()
+    public  function  changeOrder()
     {
         $input = Input::all();
         $cate = Category::find($input['cate_id']);
