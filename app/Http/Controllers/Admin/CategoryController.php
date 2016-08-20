@@ -83,9 +83,23 @@ class CategoryController extends Controller
     }
 
 
-    public function destroy()
+    public function destroy($cate_id)
     {
+        $tmp = Category::where('cate_id', $cate_id)->delete();
+        Category::where('cate_pid', $cate_id)->update(['cate_pid' => 0]);
+        if ($tmp) {
+            $data = [
+                'status' => 0,
+                'message' => '分类删除成功',
+            ];
+        } else {
+            $data = [
+                'status' => 1,
+                'message' => '分类删除失败,请稍后重试',
+            ];
+        }
 
+        return $data;
     }
 
     public  function  changeOrder()
