@@ -33,7 +33,8 @@
     <!--结果集标题与导航组件 结束-->
     
     <div class="result_wrap">
-        <form action=" {{ url('admin/category') }}" method="post">
+        <form action=" {{ url('admin/category/'.$field->cate_id) }}" method="post">
+            <input type="hidden" name="_method" value="put">
             {{ csrf_field() }}
             <table class="add_tab">
                 <tbody>
@@ -43,7 +44,9 @@
                             <select name="cate_pid">
                                 <option value="0">==父级分类==</option>
                                 @foreach($data as $tmp )
-                                <option value="{{ $tmp->cate_id }}">{{ $tmp->cate_name }}</option>
+                                <option value="{{ $tmp->cate_id }}"
+                                        @if($tmp->cate_id == $field->cate_pid) selected @endif
+                                >{{ $tmp->cate_name }}</option>
                                 @endforeach
                             </select>
                         </td>
@@ -51,32 +54,32 @@
                     <tr>
                         <th><i class="require">*</i>分类名称：</th>
                         <td>
-                            <input type="text" name="cate_name">
+                            <input type="text" name="cate_name" value="{{ $field->cate_name }}">
                             <span><i class="fa fa-exclamation-circle yellow"></i>分类名称必须填写</span>
                         </td>
                     </tr>
                     <tr>
                         <th>分类标题：</th>
                         <td>
-                            <input type="text" class="lg" name="cate_title">
+                            <input type="text" class="lg" name="cate_title" value="{{ $field->cate_title }}">
                         </td>
                     </tr>
                     <tr>
                         <th>关键词：</th>
                         <td>
-                            <textarea name="cate_keywords"></textarea>
+                            <textarea name="cate_keywords">{{ $field->cate_keywords }}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>描述：</th>
                         <td>
-                            <textarea name="cate_description"></textarea>
+                            <textarea name="cate_description"> {{ $field->cate_description  }}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="require">*</i>排序：</th>
                         <td>
-                            <input type="text"  class="sm" name="cate_order">
+                            <input type="text"  class="sm" name="cate_order" value="{{ $field->cate_order }}">
                         </td>
                     </tr>
                     <tr>

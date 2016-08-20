@@ -35,7 +35,7 @@
             <!--快捷导航 开始-->
             <div class="result_content">
                 <div class="short_wrap">
-                    <a href="#"><i class="fa fa-plus"></i>新增文章</a>
+                    <a href=" {{ url('admin/category') }}"><i class="fa fa-plus"></i>新增文章</a>
                     <a href="#"><i class="fa fa-recycle"></i>批量删除</a>
                     <a href="#"><i class="fa fa-refresh"></i>更新排序</a>
                 </div>
@@ -67,7 +67,7 @@
                         <td>{{ $tmp->cate_title }}</td>
                         <td>{{ $tmp->cate_view }}</td>
                         <td>
-                            <a href="#">修改</a>
+                            <a href="{{ url('admin/category/'.$tmp->cate_id.'/edit') }}">修改</a>
                             <a href="#">删除</a>
                         </td>
                     </tr>
