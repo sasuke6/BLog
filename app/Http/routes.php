@@ -34,6 +34,8 @@ Route::group(['middleware' => 'AdminLogin','namespace'=>'Admin', 'prefix' => 'ad
     Route::resource('category','CategoryController');
     Route::post('cate/changeorder', 'CategoryController@changeOrder');
 
+    Route::resource('article', 'ArticleController');
+
 
 });
 
