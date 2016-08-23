@@ -7,11 +7,12 @@
     <script src="{{ asset('admin/style/js/jquery.js') }}"></script>
     <script src="{{ asset('admin/style/js/admin.js') }}"></script>
     <script src="{{ asset('admin/style/js/layer/layer.js') }}"></script>
+    <script src="{{ asset('admin/style/js/jquery.form.js') }}"></script>
 
 </head>
 <body>
 
-@yield('content');
+@yield('content')
 
 </body>
 </html>

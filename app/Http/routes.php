@@ -36,6 +36,9 @@ Route::group(['middleware' => 'AdminLogin','namespace'=>'Admin', 'prefix' => 'ad
 
     Route::resource('article', 'ArticleController');
 
+    Route::get('upload','UserController@avatar');
+    Route::post('upload', 'UserController@avatarUpload');
+
 
 });
 
