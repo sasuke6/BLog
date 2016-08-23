@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Model\Category;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -40,7 +40,8 @@ class CategoryController extends Controller
             'cate_name.required' => '分类名称不能为空!',
         ];
 
-        $validator = \Validator::make($input, $rules, $message);
+
+        $validator = Validator::make($input, $rules, $message);
 
         if ($validator->passes()) {
             $tmp = Category::create($input);

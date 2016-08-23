@@ -163,6 +163,7 @@ return [
 
         Mews\Captcha\CaptchaServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
     ],
 

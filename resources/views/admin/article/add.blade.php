@@ -32,7 +32,7 @@
     <!--结果集标题与导航组件 结束-->
     
     <div class="result_wrap">
-        <form action=" {{ url('admin/category') }}" method="post">
+        <form action=" {{ url('admin/article') }}" method="post">
             {{ csrf_field() }}
             <table class="add_tab">
                 <tbody>
@@ -56,12 +56,6 @@
                         <th>编辑：</th>
                         <td>
                             <input type="text"  class="sm" name="article_editor">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>缩略图：</th>
-                        <td>
-                            <input type="text"  size="50" name="article_thumb">
                         </td>
                     </tr>
                     <tr>

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Response;
 
 class UserController extends Controller
 {
@@ -24,7 +26,7 @@ class UserController extends Controller
         $rules = array(
             'image' => 'image'
         );
-        $validator = Validator::make($input, $rules);
+        $validator = \Validator::make($input, $rules);
         if ( $validator->fails() ) {
             return Response::json([
                 'success' => false,
