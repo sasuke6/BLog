@@ -16,7 +16,8 @@ class ArticleController extends Controller
     //
     public function index()
     {
-        echo '测试';
+        $data = Article::orderBy('article_id', 'desc')->paginate(10);
+        return view('admin/article/index', compact('data'));
     }
 
     public function create()
@@ -62,4 +63,42 @@ class ArticleController extends Controller
         }
     }
 
+    public function edit($article_id)
+    {
+        $tmp = new Category;
+        $data = $tmp->tree();
+        $field = Article::find($article_id);
+
+        return view('admin/article/edit', compact('data' , 'field'));
+
+    }
+
+    public function update($article_id)
+    {
+        $input = Input::except('_token', '_method');
+        $tmp = Article::where('article_id', $article_id)->update($input);
+        if ($tmp) {
+            return redirect('admin/article');
+        } else {
+            return back()->with('errors', '文章更新失败,请稍后重试!');
+        }
+
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

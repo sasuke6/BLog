@@ -2,7 +2,6 @@
 @section('content')
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
-        <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
         <i class="fa fa-home"></i> <a href="{{ url('admin/info') }}}">首页</a> &raquo;  文章管理
     </div>
     <!--面包屑导航 结束-->
@@ -24,41 +23,39 @@
             <!--快捷导航 结束-->
         </div>
 
-        <div class="result_wrap">
-            <div class="result_content">
-                <table class="list_tab">
-                    <tr>
-                        <th class="tc">ID</th>
-                        <th>标题</th>
-                        <th>点击</th>
-                        <th>发布人</th>
-                        <th>更新时间</th>
-                        <th>评论</th>
-                        <th>操作</th>
-                    </tr>
-                    @foreach($data as $tmp)
-                    <tr>
-                        <td class="tc"> {{ $tmp->article_id }}</td>
-                        <td>
-                            <a href="#">{{ $tmp->article_title }}</a>
-                        </td>
-                        <td>{{ $tmp->article_view }}</td>
-                        <td>{{ $tmp->article_editor }}</td>
-                        <td>{{ date('Y-m-d', $tmp->article_time) }}</td>
-                        <td></td>
-                        <td>
-                            <a href=" {{ url('admin/article/' .$tmp->article_id. '/edit') }}">修改</a>
-                            <a href="#">删除</a>
-                        </td>
-                    </tr>
-                        @endforeach
-                </table>
+            <div class="result_wrap">
+                <div class="result_content">
+                    <table class="list_tab">
+                        <tr>
+                            <th class="tc">ID</th>
+                            <th>标题</th>
+                            <th>点击</th>
+                            <th>发布人</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        @foreach($data as $tmp)
+                        <tr>
+                            <td class="tc"> {{ $tmp->article_id }}</td>
+                            <td>
+                                <a href="#">{{ $tmp->article_title }}</a>
+                            </td>
+                            <td>{{ $tmp->article_view }}</td>
+                            <td>{{ $tmp->article_editor }}</td>
+                            <td>{{ date('Y-m-d', $tmp->article_time) }}</td>
+                            <td>
+                                <a href=" {{ url('admin/article/' .$tmp->article_id. '/edit') }}">修改</a>
+                                <a href="#">删除</a>
+                            </td>
+                        </tr>
+                            @endforeach
+                    </table>
 
-                <div class="page_list">
-                    {{ $data->links() }}
+                    <div class="page_list">
+                        {{ $data->render() }}
+                    </div>
                 </div>
             </div>
-        </div>
     </form>
 
 
@@ -70,6 +67,6 @@
 </style>
 
 
-    
+
     <!--搜索结果页面 列表 结束-->
 @endsection
