@@ -86,6 +86,24 @@ class ArticleController extends Controller
 
     }
 
+    public function destroy($article_id)
+    {
+        $tmp = Article::where('article_id', $article_id)->delete();
+        if ($tmp) {
+            $data = [
+                'status' => 0,
+                'message' => '文章删除成功',
+            ];
+        } else {
+            $data = [
+                'status' => 1,
+                'message' => '文章删除失败,请稍后重试',
+            ];
+        }
+
+        return $data;
+    }
+
 }
 
 

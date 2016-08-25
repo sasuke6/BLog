@@ -45,7 +45,7 @@
                             <td>{{ date('Y-m-d', $tmp->article_time) }}</td>
                             <td>
                                 <a href=" {{ url('admin/article/' .$tmp->article_id. '/edit') }}">修改</a>
-                                <a href="#">删除</a>
+                                <a href="javascript:;" onclick="deleteArticle( {{$tmp->article_id}} )">删除</a>
                             </td>
                         </tr>
                             @endforeach
@@ -65,6 +65,26 @@
         padding: 6px 12px;
     }
 </style>
+
+    <script>
+        function deleteArticle(article_id) {
+            layer.confirm('你确定要删除这篇文章吗?', {
+                btn: ['确定', '取消']
+            }, function () {
+                $.post("{{ url('admin/article/') }}/" + article_id , { '_method': 'delete', '_token': '{{ csrf_token() }}' }, function (data) {
+                    if (data.status == 0) {
+                        location.href = location.href;
+                        layer.msg(data.message, {icon : 6});
+                    } else {
+                        layer.msg(data.message, {icon : 5});
+                    }
+                });
+            }, function () {
+
+            });
+        }
+
+    </script>
 
 
 
