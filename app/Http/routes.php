@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Home'], function() {
 
 Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
 
-
+    Route::any('/', 'LoginController@login');
     Route::any('login', 'LoginController@login');
     Route::any('captcha', 'LoginController@captcha');
 
