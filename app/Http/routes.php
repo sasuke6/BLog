@@ -12,7 +12,24 @@
 */
 
 
+//Route::group(['middleware' => ['web']], function () {
+//
+//    Route::get('/', function () {
+//       return view('welcome');
+//    });
+//
+//});
 
+//Route::get('/', function() {
+//   return view('welcome');
+//});
+
+Route::group(['namespace' => 'Home'], function() {
+
+    Route::get('/', 'IndexController@index');
+    Route::get('article/{article_id}', 'IndexController@article');
+
+});
 
 Route::group(['namespace'=>'Admin', 'prefix' => 'admin'], function () {
 
